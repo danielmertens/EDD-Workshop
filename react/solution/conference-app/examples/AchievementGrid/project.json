@@ -1,0 +1,68 @@
+{
+  "name": "Example-AchievementGrid",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "examples/AchievementGrid/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/examples/AchievementGrid"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "Example-AchievementGrid:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "Example-AchievementGrid:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "Example-AchievementGrid:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nx/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "Example-AchievementGrid:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "Example-AchievementGrid:build:development"
+        },
+        "production": {
+          "buildTarget": "Example-AchievementGrid:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "reportsDirectory": "../../coverage/examples/AchievementGrid"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": []
+}

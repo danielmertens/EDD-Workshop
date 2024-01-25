@@ -1,0 +1,29 @@
+.styledContainer {
+    width: 100%;
+    height: 100%;
+
+    &.type1 {
+        background: linear-gradient(135deg, #269BB9 10%, #C248D6 90%);
+        color: white;
+    }
+    
+    &.type2 {
+        background: linear-gradient(to right, #FF4B2B, #FF416C);
+    }
+    
+    &.type3 {
+        background: linear-gradient(to right, #00b09b, #96c93d);
+    }
+    
+    &.type4 {
+        background: linear-gradient(to right, #59c173, #a17fe0, #7538e7);
+    }
+    
+    &.type5 {
+        background: linear-gradient(to right, #4e54c8, #8f94fb);
+    }
+    
+    &.type6 {
+        background: linear-gradient(to right, #fc5c7d, #6a82fb);
+    }
+}

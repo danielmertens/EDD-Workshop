@@ -1,0 +1,80 @@
+{
+  "name": "example-shared-UI",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "conference-app",
+  "sourceRoot": "examples/shared/UI/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/examples/shared/UI",
+        "index": "examples/shared/UI/src/index.html",
+        "browser": "examples/shared/UI/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "examples/shared/UI/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "examples/shared/UI/src/favicon.ico",
+          "examples/shared/UI/src/assets"
+        ],
+        "styles": ["examples/shared/UI/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "example-shared-UI:build:production"
+        },
+        "development": {
+          "buildTarget": "example-shared-UI:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "example-shared-UI:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "examples/shared/UI/jest.config.ts"
+      }
+    }
+  }
+}

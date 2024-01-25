@@ -1,0 +1,19 @@
+.headerContainer {
+  display: flex;
+  align-items: center;
+  
+  width: 100%;
+  gap: 60px;
+
+  border-radius: 5px;
+  background: #156cf9;
+  background: linear-gradient(90deg, #66b3ff 0%, #61e5ff 100%);
+}
+
+.headerContainer > * {
+  padding: 10px 20px;
+}
+
+.headerLeft {
+    width: 100%;
+}

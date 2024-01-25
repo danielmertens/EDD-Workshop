@@ -1,0 +1,30 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@conference-app/achievement-form": [
+        "libs/achievement-form/src/index.ts"
+      ],
+      "@conference-app/achievement-grid": [
+        "libs/achievement-grid/src/index.ts"
+      ],
+      "@conference-app/header": ["libs/header/src/index.ts"],
+      "@conference-app/shared-UI": ["libs/shared/UI/src/index.ts"],
+      "@conference-app/shared-models": ["libs/shared/models/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

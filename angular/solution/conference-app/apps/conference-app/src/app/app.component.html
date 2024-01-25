@@ -1,0 +1,6 @@
+<div *ngIf='appData === null' >Loading...</div>
+
+<div class="app" *ngIf='appData !== null'>
+  <app-header [user]='appData!.user' [achievementSummary]='appData!.achievementSummary'/>
+  <app-achievement-grid [achievements]="appData.achievements" (reloadData)="reload()" />
+</div>

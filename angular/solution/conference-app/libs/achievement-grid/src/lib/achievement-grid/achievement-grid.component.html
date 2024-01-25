@@ -1,0 +1,21 @@
+<div class='achievementGridContainer'>
+    <div class='achievementGridControls'>
+        <button (click)="openAddAchievementForm()">Add</button>
+        <select defaultValue="All" (change)="filterChanged($event)" value={filter}>
+            <option value='All'>All</option>
+            <option value='Completed'>Completed</option>
+            <option value='Uncompleted'>Uncompleted</option>
+        </select>
+    </div>
+    <div class='achievementGridDivider'></div>
+    <div class='achievementGrid'>
+        <ng-container *ngFor="let achievement of filteredAchievements; let i = index">
+            <app-achievement [achievement]="achievement" (reloadData)="reloadData.emit()">
+            </app-achievement>
+        </ng-container>
+    </div>
+</div>
+
+<app-modal [isOpen]="isOpen">
+    <app-achievement-form (onClose)="closeAddAchievementForm()" />
+</app-modal>

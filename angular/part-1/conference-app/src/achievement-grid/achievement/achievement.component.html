@@ -1,0 +1,16 @@
+<app-styled-container [borderRadius]="12" [styleType]="achievement.styleType">
+    <div class="achievement">
+
+        <div class='achievementTitle'>{{ achievement.title }}</div>
+
+        <span *ngIf="achievement.progress === achievement.goal">Completed ⭐</span>
+
+        <span *ngIf="achievement.progress < achievement.goal">
+            <progress [value]="achievement.progress" [max]="achievement.goal"></progress>
+            <span class="achievementProgressText">{{ achievement.progress }}/{{ achievement.goal }}</span>
+        </span>
+
+        <button *ngIf="achievement.status !== 'completed'" class="achievementButton" (click)="increment()">+1</button>
+
+    </div>
+</app-styled-container>

@@ -1,0 +1,45 @@
+.achievementForm {
+    max-width: 800px;
+}
+
+.achievementForm > label {
+    display: inline-block;
+}
+
+.achievementFormRadioInline {
+    display: inline-block;
+    border: 3px solid #ffffff;
+    border-radius: 10px;
+    padding: 2px;
+}
+
+.achievementFormRadioInline > input {
+    display: none;
+}
+
+.achievementFormRadioInline:has(input:checked) {
+    border: 3px solid #000000;
+}
+
+.achievementFormSelector {
+    display: flex;
+    padding: 4px 0px;
+    list-style: none;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    gap: 8px;
+}
+
+.achievementFormSelector > label {
+    cursor: pointer;
+}
+
+.achievementFormStyleExample {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 40px;
+    border-radius: 50%;
+}

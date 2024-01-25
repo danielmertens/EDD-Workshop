@@ -1,0 +1,80 @@
+{
+  "name": "example-achievement-grid",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "conference-app",
+  "sourceRoot": "examples/achievement-grid/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/examples/achievement-grid",
+        "index": "examples/achievement-grid/src/index.html",
+        "browser": "examples/achievement-grid/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "examples/achievement-grid/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "examples/achievement-grid/src/favicon.ico",
+          "examples/achievement-grid/src/assets"
+        ],
+        "styles": ["examples/achievement-grid/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "example-achievement-grid:build:production"
+        },
+        "development": {
+          "buildTarget": "example-achievement-grid:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "example-achievement-grid:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "examples/achievement-grid/jest.config.ts"
+      }
+    }
+  }
+}

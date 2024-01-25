@@ -1,0 +1,28 @@
+:host { 
+    width: 100%;
+}
+
+.achievementGridContainer {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+.achievementGridControls {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.achievementGridDivider {
+    height: 1px;
+    background-color: #000000;
+}
+
+.achievementGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    justify-items: center;
+    align-items: center;
+}

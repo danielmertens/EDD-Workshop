@@ -1,0 +1,37 @@
+{
+  "name": "achievement-grid",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/achievement-grid/src",
+  "prefix": "conference-app",
+  "tags": [],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/achievement-grid/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/achievement-grid/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/achievement-grid/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/achievement-grid/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    }
+  }
+}

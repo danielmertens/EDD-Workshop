@@ -1,0 +1,16 @@
+.progressGraphContainer {
+    height: 150px;
+    width: 150px;
+    position: relative;
+}
+
+.doughnutText {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

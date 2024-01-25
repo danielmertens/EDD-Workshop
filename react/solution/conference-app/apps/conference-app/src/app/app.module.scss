@@ -1,0 +1,13 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: top;
+  align-items: center;
+
+  padding: 25px;
+  width: 80%;
+  margin: auto;
+
+  row-gap: 20px;
+}

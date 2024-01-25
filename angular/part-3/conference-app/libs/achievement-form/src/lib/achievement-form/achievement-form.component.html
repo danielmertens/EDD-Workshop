@@ -1,0 +1,30 @@
+<form #form="ngForm" (ngSubmit)="handleSubmit(form)" class="achievementForm">
+    <div>
+      <label for="title">Title:</label><br />
+      <input type="text" id="title" [(ngModel)]="title" name="title" required />
+    </div>
+    <br/>
+    <div>
+      <label for="number">Number:</label><br />
+      <input type="number" id="number" [(ngModel)]="number" name="number" required />
+    </div>
+    <br/>
+    <div>
+      <div>Select style:</div>
+      <label for="type" class="achievementFormSelector">
+        <label *ngFor="let i of [0, 1, 2, 3, 4, 5]" class="achievementFormRadioInline">
+          <input type="radio" name="type" [value]="i + 1" (change)="styleType = i + 1" [(ngModel)]="styleType" />
+          <app-styled-container [styleType]="i + 1" [borderRadius]="6">
+            <div class="achievementFormStyleExample">{{ i + 1 }}</div>
+          </app-styled-container>
+        </label>
+      </label>
+    </div>
+  
+    <div>
+      <button type="submit">Submit</button>
+      <button type="button" (click)="handleCancel()">
+        Cancel
+      </button>
+    </div>
+  </form>
